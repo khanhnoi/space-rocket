@@ -1,0 +1,79 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+    background-color: #000;
+}
+.universe {
+    width: 100%;
+    height: 100vh;
+
+    background-color: #000;
+    overflow: hidden;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.universe .rocket {
+    position: absolute;
+    pointer-events: none;
+    animation: engine 0.2s ease infinite;
+
+    transition: 0.2s;
+}
+@keyframes engine {
+    0%, 100% {
+        transform: translateY(-52px) translateX(-50%);
+    }
+    50% {
+        transform: translateY(-48px) translateX(-50%);
+    }
+}
+
+.universe .rocket::before {
+    width: 10px;
+    height: 200px;
+    color: rgb(233, 113, 16);
+    background: linear-gradient(#d17813, transparent);
+    filter: blur(3px);
+
+    content: '';
+    position: absolute;
+    bottom: -200px;
+    left: 36px;
+
+    transform: translateX(-50%);
+
+}
+
+/* ngoi sao */
+.universe i {
+    width: 1px;
+    /* height: 100px; */
+    background: linear-gradient(transparent,#f6f6f5);
+    filter: blur(0.1px);
+
+    position: absolute;
+    top: 0;
+    /* left: 50%; */
+    z-index: 100;
+
+    animation: runStar linear infinite;
+}
+
+@keyframes runStar {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        /* transform: translateY(calc(100vh - 100px)); */
+        transform: translateY(200vh);
+    }
+}
+
+iframe {
+    position: absolute;
+    z-index: -1;
+}
